@@ -1,0 +1,11 @@
+{{#partial "content"}}
+<h3>Change team:</h3>
+<p>Old name: {{team.name}}</p>
+<form action="/add_team" method="post">
+    <label>New name: </label>
+    <input name="newName">
+
+    <button type="submit">submit</button>
+</form>
+{{/partial}}
+{{>layout.hbs}}

@@ -1,0 +1,16 @@
+{{#partial "content"}}
+<h3>Participating teams:</h3>
+<p><a href="/">home page</a></p>
+<p><a href="/add_team">add team</a></p>
+{{#if teams}}
+{{#each teams}}
+    <p>{{id}}.&nbsp<strong>{{name}}</strong></p>
+    <p>{{description}}</p>
+    <p><a href="/teams/{{id}}">more</a></p>
+    <hr>
+{{/each}}
+{{else}}
+<p>no teams so far</p>
+{{/if}}
+{{/partial}}
+{{>layout.hbs}}

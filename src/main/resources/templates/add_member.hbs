@@ -1,0 +1,10 @@
+{{#partial "content"}}
+<h3>New member:</h3>
+<form action="/teams/add_member/{{team.id}}" method="post">
+    <label>Name: </label>
+    <input name="memberName">
+
+    <button type="submit">add</button>
+</form>
+{{/partial}}
+{{>layout.hbs}}
