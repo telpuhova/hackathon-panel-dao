@@ -1,7 +1,7 @@
 {{#partial "content"}}
 <h3>Change team:</h3>
 <p>Old name: {{team.name}}</p>
-<form action="/add_team" method="post">
+<form action="/teams/update/{{team.id}}" method="post">
     <label>New name: </label>
     <input name="newName">
 
