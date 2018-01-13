@@ -1,4 +1,5 @@
 {{#partial "content"}}
+<p><a href="/teams">back to team list</a></p>
 <h3>{{team.name}}</h3>
 <p>{{team.description}}</p>
 <p>team members:</p>
@@ -7,7 +8,6 @@
     <li>{{.}}</li>
     {{/each}}
 </ul>
-<p><a href="/teams">back to team list</a></p>
 <p><a href="add_member/{{team.id}}">add a team member</a></p>
 <p><a href="/teams/update/{{team.id}}">update team</a></p>
 

@@ -20,7 +20,6 @@ public class App {
         team1.addMember("Jane");
         team1.addMember("Chris");
 
-
         staticFileLocation("/public");
 
         //home page with details
@@ -29,8 +28,6 @@ public class App {
 
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
-
-
 
         //list of teams
         get("/teams", (req, res) -> {
@@ -78,7 +75,6 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-
         //add team member
         get("/teams/add_member/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<String, Object>();
@@ -98,11 +94,8 @@ public class App {
 
             model.put("team", team);
 
-            return new ModelAndView(model, "success.hbs");
+            return new ModelAndView(model, "success2.hbs");
         }, new HandlebarsTemplateEngine());
-
-
-
 
         //each team's details
         get("/teams/:id", (req, res) -> {
@@ -112,10 +105,5 @@ public class App {
 
             return new ModelAndView(model, "team.hbs");
         }, new HandlebarsTemplateEngine());
-
-
-
-
-
     }
 }
