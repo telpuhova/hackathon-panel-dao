@@ -4,12 +4,14 @@
 <p>{{team.description}}</p>
 <p>team members:</p>
 <ul>
-    {{#each team.members}}
-    <li>{{.}}</li>
+    {{#each members}}
+    <li>{{name}} <a href="/member/{{id}}">more</a></li>
     {{/each}}
 </ul>
+<hr>
 <p><a href="add_member/{{team.id}}">add a team member</a></p>
 <p><a href="/teams/update/{{team.id}}">update team</a></p>
+<p><a href="/teams/delete/{{team.id}}">delete</a></p>
 
 {{/partial}}
 {{>layout.hbs}}

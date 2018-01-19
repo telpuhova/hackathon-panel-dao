@@ -59,4 +59,18 @@ public class Sql2oMemberDao implements MemberDao{
                     .executeAndFetch(Member.class);
         }
     }
+
+    public void update(int id, String name, String dateOfBirth){
+        String sql = "UPDATE members SET name = :name, dateOfBirth = :dateOfBirth WHERE id=:id";
+
+        try(Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("dateOfBirth", dateOfBirth)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 }

@@ -1,0 +1,11 @@
+{{#partial "content"}}
+<p><a href="/teams">back to team list</a></p>
+<h3>{{member.name}}</h3>
+<p>date of birth: {{member.dateOfBirth}}</p>
+<p>team: {{team.name}}</p>
+<hr>
+<p><a href="/member/update/{{member.id}}">update member</a></p>
+<p><a href="/member/delete/{{member.id}}">delete</a></p>
+
+{{/partial}}
+{{>layout.hbs}}

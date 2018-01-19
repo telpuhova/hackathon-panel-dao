@@ -3,7 +3,7 @@
 <p>Old name: {{team.name}}</p>
 <form action="/teams/update/{{team.id}}" method="post">
     <label>New name: </label>
-    <input name="newName">
+    <input name="newName" value="{{team.name}}">
 
     <button type="submit">submit</button>
 </form>
