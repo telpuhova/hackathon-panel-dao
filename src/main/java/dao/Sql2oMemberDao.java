@@ -60,6 +60,7 @@ public class Sql2oMemberDao implements MemberDao{
         }
     }
 
+    @Override
     public void update(int id, String name, String dateOfBirth){
         String sql = "UPDATE members SET name = :name, dateOfBirth = :dateOfBirth WHERE id=:id";
 
@@ -67,6 +68,18 @@ public class Sql2oMemberDao implements MemberDao{
             con.createQuery(sql)
                     .addParameter("name", name)
                     .addParameter("dateOfBirth", dateOfBirth)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @Override
+    public void deleteById(int id){
+        String sql = "DELETE FROM members WHERE id = :id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {

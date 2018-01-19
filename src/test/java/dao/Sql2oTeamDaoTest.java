@@ -53,4 +53,20 @@ public class Sql2oTeamDaoTest {
         teamDao.add(team3);
         assertEquals(3, teamDao.getAll().size());
     }
+
+    @Test
+    public void update() {
+        Team team = new Team("team1");
+        teamDao.add(team);
+        teamDao.update(1, "new_name");
+        assertEquals("new_name", teamDao.findById(1).getName());
+    }
+
+    @Test
+    public void delete() {
+        Team team = new Team("team1");
+        teamDao.add(team);
+        teamDao.deleteById(1);
+        assertEquals(0, teamDao.getAll().size());
+    }
 }

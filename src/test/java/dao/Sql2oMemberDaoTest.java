@@ -64,4 +64,20 @@ public class Sql2oMemberDaoTest {
         assertEquals(2, memberDao.getAllByTeam(1).size());
     }
 
+    @Test
+    public void update() {
+        Member team = new Member("member1", 1);
+        memberDao.add(team);
+        memberDao.update(1, "new_name", "");
+        assertEquals("new_name", memberDao.findById(1).getName());
+    }
+
+    @Test
+    public void delete() {
+        Member team = new Member("member1", 1);
+        memberDao.add(team);
+        memberDao.deleteById(1);
+        assertEquals(0, memberDao.getAll().size());
+    }
+
 }

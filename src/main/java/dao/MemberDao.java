@@ -12,4 +12,8 @@ public interface MemberDao {
     List<Member> getAll();
 
     List<Member> getAllByTeam(int teamId);
+
+    void update(int id, String name, String dateOfBirth);
+
+    void deleteById(int id);
 }
