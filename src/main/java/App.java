@@ -3,6 +3,7 @@ import dao.Sql2oTeamDao;
 import models.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -80,7 +81,7 @@ public class App {
             teamDao.update(Integer.parseInt(req.params("id")), req.queryParams("newName"));
             model.put("team", team);
 
-            return new ModelAndView(model, "success.hbs");
+            return new ModelAndView(model, "success2.hbs");
         }, new HandlebarsTemplateEngine());
 
         //add team member
@@ -143,6 +144,40 @@ public class App {
             Member member = memberDao.findById(Integer.parseInt(req.params("id")));
             memberDao.update(Integer.parseInt(req.params("id")), req.queryParams("name"), req.queryParams("dateOfBirth"));
             model.put("member", member);
+
+            Team team = teamDao.findById(member.getTeamId());
+            model.put("team", team);
+
+            return new ModelAndView(model, "success2.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/member/delete/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            Member member = memberDao.findById(Integer.parseInt(req.params("id")));
+            memberDao.deleteById(Integer.parseInt(req.params("id")));
+//            model.put("member", member);
+
+            Team team = teamDao.findById(member.getTeamId());
+            model.put("team", team);
+
+            return new ModelAndView(model, "success2.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/teams/delete/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            int teamId = Integer.parseInt(req.params("id"));
+
+//            List<Member> members = memberDao.getAllByTeam(teamId);
+//            for (int i = 0; i<members.size(); i++){
+//                int j = members.get(i).getId();
+//                memberDao.deleteById(j);
+//            }
+            teamDao.deleteById(teamId);
+
+            Team team = teamDao.findById(teamId);
+            model.put("team", team);
 
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
