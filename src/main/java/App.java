@@ -15,12 +15,6 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
 
-        //initial teams to see how it looks
-        Team team1 = new Team("Trojan Horses", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-        Team team2 = new Team("Did It All for the Cookies", "Non sodales neque sodales ut etiam sit amet nisl purus.");
-        Team team3 = new Team("Reboot Rebels", "Volutpat consequat mauris nunc congue nisi vitae.");
-        Team team4 = new Team("Cyber Creepers", "Felis eget nunc lobortis mattis aliquam faucibus.");
-
         staticFileLocation("/public");
 
         String connectionString = "jdbc:h2:~/standup3.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
@@ -169,11 +163,11 @@ public class App {
 
             int teamId = Integer.parseInt(req.params("id"));
 
-//            List<Member> members = memberDao.getAllByTeam(teamId);
-//            for (int i = 0; i<members.size(); i++){
-//                int j = members.get(i).getId();
-//                memberDao.deleteById(j);
-//            }
+            List<Member> members = memberDao.getAllByTeam(teamId);
+            for (int i = 0; i<members.size(); i++){
+                int j = members.get(i).getId();
+                memberDao.deleteById(j);
+            }
             teamDao.deleteById(teamId);
 
             Team team = teamDao.findById(teamId);
