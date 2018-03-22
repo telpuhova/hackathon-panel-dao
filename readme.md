@@ -1,12 +1,12 @@
-# _hackathon-panel-dao_
+# hackathon-panel-dao
 
-#### _web application for hackathon team registering, 1/19/2018_
+web application for hackathon team registering, 1/19/2018
 
-#### By _**telpuhova**_
+**By Natalia Telpukhova**
 
 ## Description
 
-_Web application that lets the user store teams and members in a database and manipulate information._
+Web application that lets the user store teams and members in a database and manipulate information.
 
 ### Specs
 | Behavior | Input | Output |
@@ -20,11 +20,11 @@ _Web application that lets the user store teams and members in a database and ma
 
 ## Setup
 
-* _clone repository_
-* _run App.java_
+* clone repository
+* run App.java
 
 ## Technologies Used
 
-_Java, Spark, Postgres, Handlebars_
+Java, Spark, Postgres, Handlebars
 
-Copyright (c) 2017 **_telpuhova_**
+Copyright (c) 2018 Natalia Telpukhova
